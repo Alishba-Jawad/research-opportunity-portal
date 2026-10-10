@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "research-portal-collection",
+		"name": "Research Portal API",
+		"description": "CRUD API collection for the Research Portal — Computer Network Assignment 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000"
+		}
+	],
+	"item": [
+		{
+			"name": "Create Opportunity 1 — AI Research",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"AI Research Assistant\",\n  \"description\": \"Assist in developing NLP models for Urdu language processing.\",\n  \"research_area\": \"Natural Language Processing\",\n  \"faculty_name\": \"Dr. Ahmed Khan\",\n  \"department\": \"CS\",\n  \"required_skills\": \"Python, PyTorch, NLP\",\n  \"available_positions\": 3,\n  \"deadline\": \"2027-01-15\",\n  \"status\": \"Open\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Opportunity 2 — Cybersecurity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Network Security Researcher\",\n  \"description\": \"Investigate intrusion detection systems using machine learning on campus network traffic data.\",\n  \"research_area\": \"Cybersecurity\",\n  \"faculty_name\": \"Dr. Sara Malik\",\n  \"department\": \"IT\",\n  \"required_skills\": \"Wireshark, Python, Scikit-learn, Networking\",\n  \"available_positions\": 2,\n  \"deadline\": \"2027-02-28\",\n  \"status\": \"Open\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Opportunity 3 — Bioinformatics",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Genomic Data Analyst\",\n  \"description\": \"Analyze RNA sequencing datasets to identify gene expression patterns linked to disease markers.\",\n  \"research_area\": \"Bioinformatics\",\n  \"faculty_name\": \"Dr. Fatima Raza\",\n  \"department\": \"SE\",\n  \"required_skills\": \"R, Bioconductor, Python, Statistics\",\n  \"available_positions\": 4,\n  \"deadline\": \"2027-03-20\",\n  \"status\": \"Open\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Opportunities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Opportunity by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/opportunities/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities", "1"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Opportunity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"AI Research Assistant (Updated)\",\n  \"description\": \"Updated description for the research opportunity.\",\n  \"research_area\": \"Machine Learning\",\n  \"faculty_name\": \"Dr. Ahmed Khan\",\n  \"department\": \"AI\",\n  \"required_skills\": \"Python, TensorFlow, Statistics\",\n  \"available_positions\": 5,\n  \"deadline\": \"2027-03-01\",\n  \"status\": \"Open\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities", "1"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Opportunity",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/opportunities/3",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities", "3"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Deleted Opportunity (expect 404)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/opportunities/3",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities", "3"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create — Validation Error (empty title)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"\",\n  \"description\": \"Test\",\n  \"research_area\": \"Test\",\n  \"faculty_name\": \"Test\",\n  \"department\": \"CS\",\n  \"required_skills\": \"Test\",\n  \"available_positions\": 1,\n  \"deadline\": \"2027-01-01\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create — Invalid Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Test\",\n  \"description\": \"Test\",\n  \"research_area\": \"Test\",\n  \"faculty_name\": \"Test\",\n  \"department\": \"CS\",\n  \"required_skills\": \"Test\",\n  \"available_positions\": 1,\n  \"deadline\": \"2027-01-01\",\n  \"status\": \"abc\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create — Invalid Deadline",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Test\",\n  \"description\": \"Test\",\n  \"research_area\": \"Test\",\n  \"faculty_name\": \"Test\",\n  \"department\": \"CS\",\n  \"required_skills\": \"Test\",\n  \"available_positions\": 1,\n  \"deadline\": \"hello\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/opportunities",
+					"host": ["{{base_url}}"],
+					"path": ["api", "opportunities"]
+				}
+			},
+			"response": []
+		}
+	]
+}
